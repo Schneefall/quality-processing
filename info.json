@@ -1,0 +1,27 @@
+{
+	"name": "quality-processing",
+	"version": "1.2.13",
+	"title": "Quality Processing",
+	"author": "Schneefall",
+	"factorio_version": "2.0",
+	"dependencies": [
+		"base >= 2.0.60",
+		"space-age >= 2.0.60",
+		"quality >= 2.0.60",
+		
+		"(?)HeavyExpensivePlaceables",
+		
+		"!no-quality",
+		"!Inverted-Quality",
+		"!fewer-quality-tiers",
+		"!no-more-quality",
+		
+		"!better-quality-names",
+		"!customizable-quality-names",
+		"!custom-quality-names",
+		"!crosscheck"
+	],
+	"description": "This mods adds new processing chains for upgrading an item's quality.",
+	"spoiling_required": true,
+	"space_travel_required": true
+}

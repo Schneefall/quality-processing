@@ -1,0 +1,99 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.2.13
+Date: 2025-09-29
+  Minor Features:
+    - Added option to remove promethium as quality upgrade ingredient.
+  Bugfixes:
+    - Capped upgrade cost at 65535.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.12
+Date: 2025-09-21
+  Minor Features:
+    - Quality upgrade recipes now have their own item groups.
+  Bugfixes:
+    - Improved icon generation for quality upgrade recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.11
+Date: 2025-09-13
+  Minor Features:
+    - Added support for looted items.
+    - Added fallback complexity (option) for items without any known sources and valid recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.10
+Date: 2025-09-10
+  Bugfixes:
+    - Fixes for recipe graph cycle detection.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.9
+Date: 2025-08-31
+  Bugfixes:
+    - Fixed handling of generator recipes.
+    - Added saveguards against disconnecting the recipe graph when breaking cycles.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.8
+Date: 2025-08-31
+  Bugfixes:
+    - Fixed startup error when "Hide quality modules" is enabled.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.7
+Date: 2025-08-30
+  Minor Features:
+    - Option to disable surface conditions of crafting thruster oxidizer/fuel.
+  Bugfixes:
+    - Moved quality upgrade recipe generation to data-final-fixes to pick up on more recipe changes done by other mods.
+    - Excluded hidden items from upgrade recipe generation.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 2025-08-28
+  Bugfixes:
+    - Fixed crash when replacing upgrade machines.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2025-08-28
+  Bugfixes:
+    - Marked armors as unstackable in recipe generation.
+    - Added a second more agressive recipe graph cycle breaking stage.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 2025-08-28
+  Bugfixes:
+    - Support for spoiling and burning results.
+    - Improved recipe graph cycle detection.
+    - Blacklisted cyclic recipe from "Quantum Lab".
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 2025-08-26
+  Bugfixes:
+    - Relaxed incompatibilites regarding mods that add additional quality levels.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2025-08-26
+  Minor Features:
+    - Added "quantum stabilizer" crafting machine graphics.
+  Bugfixes:
+    - Excluded curser tools from upgrades.
+    - Fixed handling of unstackable items.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2025-08-25
+  Bugfixes:
+    - Updated icons for "glas furnace", "photometric lab", "manufacturer", and "cybernetics facility".
+    - Fixed shadow of "manufacturer".
+    - Saveguard against crashing from trying to calculate the complexity of items with no valid recipes.
+    - Blacklisted cyclic recipes from "Aquilo Science Juggling".
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2025-08-25
+  Minor Features:
+    - Added options for the crafting machine graphics.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2025-08-25
+  Minor Features:
+    - Added option to hide vanilla quality modules.
+    - Added option to blacklist items.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2025-08-25
+  Major Features:
+    - Initial release.

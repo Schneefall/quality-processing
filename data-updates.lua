@@ -26,4 +26,15 @@ if settings.startup[shared.mod_prefix .. "hide-quality-modules"].value then
 			end
 		end
 	end
+	
+	local quality_tech_names = {"quality-module", "quality-module-2", "quality-module-3"}
+	for _,name in ipairs(quality_tech_names) do
+		local tech = data.raw.technology[name]
+		if tech then
+			tech.icon = "__core__/graphics/icons/any-quality.png"
+			tech.icon_size = 64
+			tech.localised_name = {"technology-name." .. shared.mod_prefix .. name}
+			tech.localised_description = {"technology-description." .. shared.mod_prefix .. name}
+		end
+	end
 end

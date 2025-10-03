@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.14
+Date: 2025-10-03
+  Minor Features:
+    - Added upgrade cost scale settings for the individual quality levels.
+    - Reduced minimum recipe time from 5 to 0.1 in settings.
+    - Replaced qulality module research icon and localization when "Hide quality modules" is enabled.
+  Bugfixes:
+    - Removed unused sprites.
+    - Fixed crash from item groups without order field.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.13
 Date: 2025-09-29
   Minor Features:

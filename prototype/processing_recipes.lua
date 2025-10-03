@@ -1,4 +1,5 @@
 local shared = require("shared")
+local parsed_settings = require("settings_parser")
 local processing_utility = require("processing_utility")
 local item_complexity = require("item_complexity")
 
@@ -96,12 +97,15 @@ end
 
 
 
-local function complexity_to_upgrade_count(item_name, complexity)
+local function complexity_to_upgrade_count(item_name, complexity, quality)
+	quality = quality or "normal"
 	local scale = settings.startup[shared.mod_prefix .. "cost-scale"].value -- 0.933
 	local pre_scale = settings.startup[shared.mod_prefix .. "cost-pre-scale"].value -- 0.595
 	local exponent = settings.startup[shared.mod_prefix .. "cost-exp"].value -- 0.461
 
 	local cost = scale * math.pow(pre_scale * complexity, exponent)
+	
+	cost = cost * parsed_settings.quality_cost_scale[quality]
 	
 	if shared.array_contains(shared.upgrade_item_names, item_name) then
 		cost = cost * settings.startup[shared.mod_prefix .. "upgrade-item-cost-scale"].value or 1
@@ -268,7 +272,7 @@ local function get_item_quality_subgroup(item)
 		quality_group.name = quality_group_name
 		quality_group.icons = processing_utility.generate_processing_recipe_group_icon(group)
 		quality_group.localised_name = {"item-group-name.quality-processing--upgrade-recipe-group", group.localised_name or {"item-group-name."..group_name}}
-		quality_group.order = "z-qp-" .. quality_group.order
+		quality_group.order = "z-qp-" .. (quality_group.order or "")
 		quality_group.hidden_in_factoriopedia = true
 		data:extend({quality_group})
 		item_quality_group_names[quality_group_name] = true
@@ -313,13 +317,15 @@ for item_name, complexity in pairs(complexity_data.item) do
 	end
 	
 	local complexity = complexity_data.item[item_name]
-	local upgrades_per_item = complexity_to_upgrade_count(item_name, complexity)
-	local time_per_item = complexity_to_upgrade_time(item_name, complexity)
-	local items, input_scale, final_time = get_recipe_scales(upgrades_per_item, time_per_item, is_item_stackable(item))
 	
 	local subgroup = get_item_quality_subgroup(item)
 	
 	for _,quality in ipairs(shared.qualities) do
+		
+		local upgrades_per_item = complexity_to_upgrade_count(item_name, complexity, quality)
+		local time_per_item = complexity_to_upgrade_time(item_name, complexity)
+		local items, input_scale, final_time = get_recipe_scales(upgrades_per_item, time_per_item, is_item_stackable(item))
+		
 		local recipe = {
 			type = "recipe",
 			name = item_name .. shared.mod_suffix_short .. quality,
